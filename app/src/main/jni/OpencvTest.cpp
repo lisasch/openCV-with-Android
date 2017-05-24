@@ -39,6 +39,18 @@ void ImageProcessing::toCannyEdge(Mat& inputImg, Mat& outputImg) {
     //cvtColor(dst, outputImg, CV_GRAY2RGBA);
 
     outputImg = dst.clone();
+
+    /*
+     * 將影像從SD card儲存或讀取
+     * save_path + 想要存的位置和檔案名稱，預設是SD card
+     * Ex. save_path + "Pictures/input.bmp" （Picture資料夾必須存在，跟PC上一樣）
+     * */
+    std::string save_path(getsavePath());
+    std::string path = save_path + "/input.bmp";
+
+    LOGI("file path = %s", path.c_str());
+
+    //imwrite(path, outputImg);
 }
 
 string ImageProcessing::type2str(int type) {
@@ -62,6 +74,14 @@ string ImageProcessing::type2str(int type) {
     r += (chans+'0');
 
     return r;
+}
+
+void ImageProcessing::savePath(char* str) {
+    saveFilePath = str;
+}
+
+char* ImageProcessing::getsavePath() {
+    return saveFilePath;
 }
 
 } // namespace test_proj

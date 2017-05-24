@@ -12,4 +12,6 @@ public class JniNative {
     }
 
     public static native void cannyEdge(long inputMat, long outputMat);
+
+    public static native void saveFilePath(String inputFilePath);
 }

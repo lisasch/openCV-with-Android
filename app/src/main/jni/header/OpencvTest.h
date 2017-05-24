@@ -18,12 +18,17 @@ class ImageProcessing {
 
 		void toCannyEdge(Mat& input, Mat& output);
 
+		void savePath(char* str);
+    	char* getsavePath();
+
 	private:
 		string type2str(int type);
 
 		double ts1;
 		double ts2;
 		int kernel_size;
+
+		char* saveFilePath;
 };
 } // namespace test_proj
 

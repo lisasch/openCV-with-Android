@@ -2,6 +2,7 @@ package com.example.caig.opencv_test;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
@@ -87,6 +88,9 @@ public class MainActivity extends Activity implements CameraBridgeViewBase.CvCam
         btn2.setOnClickListener(ClickIntHere);
 
         mode_show = (TextView)findViewById(R.id.mode);
+
+        String imageFilePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+        JniNative.saveFilePath(imageFilePath);
     }
 
     @Override

@@ -32,6 +32,15 @@ Java_com_example_caig_opencv_1test_JniNative_cannyEdge(
     app.toCannyEdge(inputImage, outputImage);
 }
 
+JNIEXPORT void JNICALL
+Java_com_example_caig_opencv_1test_JniNative_saveFilePath(
+    JNIEnv* env, jobject /*obj*/, jstring inputFilePath) {
+
+    const char *nativeString = env->GetStringUTFChars(inputFilePath, 0);
+    char* s = (char*)nativeString;
+    app.savePath(s);
+}
+
 #ifdef __cplusplus
 }
 #endif
